@@ -15,14 +15,10 @@ export default {
     },
 
     methods: {
-        check() {
-            console.log(this.projects);
-        }
+
     },
 
-    mounted() {
-        this.check();
-    }
+
 
 }
 </script>
