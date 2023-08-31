@@ -1,7 +1,7 @@
 <template>
-    <div class="card mb-3" :project="project">
+    <div class="card mb-3">
         <div class="card-header">
-            <img :src="project.image" class="card-img-top" alt="not found">
+            <img :src="project.image ? project.image : ''" class="card-img-top" alt="not found">
         </div>
 
         <div class="card-body">
@@ -18,6 +18,7 @@
             </li>
             <li class="list-group-item" v-else>No technology registered.</li>
             <li class="list-group-item"><i>{{ project.date }}</i></li>
+
         </ul>
 
     </div>
@@ -25,8 +26,18 @@
 
 <script>
 export default {
+    data() {
+        return {
+            img: 'No-image-found.png'
+        }
+    },
     props: {
         project: Object
+    },
+    methods: {
+        getImagePath(img) {
+            return new URL(`../../assets/${img}`, import.meta.url).href;
+        }
     }
 
 }
