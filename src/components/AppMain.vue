@@ -12,7 +12,7 @@ import ProjectsList from "./projects/ProjectsList.vue"
 export default {
     data() {
         return {
-            apiUrl: 'http://127.0.0.1:8000/api/projects',
+            apiUrl: 'http://localhost:8000/api/projects',
             projects: []
         }
     },
@@ -28,6 +28,7 @@ export default {
                     // handle success
                     // console.log(response.data.results.data);
                     this.projects = response.data.results.data;
+                    console.log(response.data);
 
                 })
                 .catch(function (error) {
